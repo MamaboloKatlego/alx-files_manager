@@ -23,7 +23,7 @@ const fileQueue = new Queue('fileQueue', {
 
 /**
  * @class FilesController
- * @description Controller for files related operations
+ * @description: The Controller for files related operations
  * @exports FilesController
  */
 class FilesController {
@@ -32,7 +32,7 @@ class FilesController {
    * @description Uploads a file
    * @param {Object} req - Express request object
    * @param {Object} res - Express response object
-   * @returns {Object} - Express response object
+   * @returns {Object} - It returns express response object
    */
   static async postUpload(req, res) {
     const user = await FilesController.retrieveUserBasedOnToken(req);
@@ -124,10 +124,10 @@ class FilesController {
 
   /**
    * @method writeToFile
-   * @description Helper function of @postUpload that writes the file to the disk
+   * @description: The Helper function of @postUpload that writes the file to the disk
    * @param {Object} req - Express request object
    * @param {Object} res - Express response object
-   * @returns {Object} - Express response object
+   * @returns {Object} - It returns express response object
    */
   static async writeToFile(res, filePath, data, newFile) {
     // write to file
@@ -153,10 +153,10 @@ class FilesController {
 
   /**
    * @method retrieveUserBasedOnToken
-   * @description retrieve user based on auth token
+   * @description It retrieves user based on auth token
    * @param {Object} req - Express request object
    * @param {Object} res - Express response object
-   * @returns {Object} - Express response object
+   * @returns {Object} - It returns express response object
    */
   static async retrieveUserBasedOnToken(req) {
     const authToken = req.header('X-Token') || null;
@@ -174,10 +174,10 @@ class FilesController {
 
   /**
    * @method getShow
-   * @description retrieve files based on id
+   * @description: It retrieves files based on id
    * @param {Object} req - Express request object
    * @param {Object} res - Express response object
-   * @returns {Object} - Express response object
+   * @returns {Object} - It returns express response object
    */
   static async getShow(req, res) {
     const {
@@ -210,10 +210,10 @@ class FilesController {
 
   /**
    * @method getIndex
-   * @description retrieve files based on parentid and pagination
+   * @description: It retrieves files based on parentid and pagination
    * @param {Object} req - Express request object
    * @param {Object} res - Express response object
-   * @returns {Object} - Express response object
+   * @returns {Object} - It returns express response object
    */
   static async getIndex(req, res) {
     const user = await FilesController.retrieveUserBasedOnToken(req);
@@ -274,10 +274,10 @@ class FilesController {
 
   /**
    * @method putPublish
-   * @description set isPublic to true on the file document based on the ID
+   * @description: set isPublic to true on the file document based on the ID
    * @param {Object} req - Express request object
    * @param {Object} res - Express response object
-   * @returns {Object} - Express response object
+   * @returns {Object} - It returns express response object
    */
   static putPublish(req, res) {
     FilesController.pubSubHelper(req, res, true);
@@ -285,10 +285,10 @@ class FilesController {
 
   /**
    * @method putUnpublish
-   * @description set isPublic to false on the file document based on the ID
+   * @description: set isPublic to false on the file document based on the ID
    * @param {Object} req - Express request object
    * @param {Object} res - Express response object
-   * @returns {Object} - Express response object
+   * @returns {Object} - It returns express response object
    */
   static putUnpublish(req, res) {
     FilesController.pubSubHelper(req, res, false);
@@ -296,11 +296,11 @@ class FilesController {
 
   /**
    * @method pubSubHelper
-   * @description helper method for @putPublish and @putUnpublish
+   * @description: The helper method for @putPublish and @putUnpublish
    * @param {Object} req - Express request object
    * @param {Object} res - Express response object
    * @param {Boolean} isPublic - isPublic value to set
-   * @returns {Object} - Express response object
+   * @returns {Object} - It returns express response object
    */
   static async pubSubHelper(req, res, updateValue) {
     const {
@@ -343,10 +343,10 @@ class FilesController {
 
   /**
    * @method getFile
-   * @description return the content of the file document based on the ID
+   * @description: The content of the file document based on the ID
    * @param {Object} req - Express request object
    * @param {Object} res - Express response object
-   * @returns {Object} - Express response object
+   * @returns {Object} - It returns express response object
    */
   static async getFile(req, res) {
     const {
@@ -407,9 +407,9 @@ class FilesController {
 
   /**
    * @method pathExists
-   * @description check if the path exists
+   * @description: It  check if the path exists
    * @param {String} path - path to check
-   * @returns {Boolean} - true if path exists, false otherwise
+   * @returns {Boolean} - returns true if path exists, false otherwise
    */
   static pathExists(path) {
     return new Promise((resolve) => {
